@@ -3,3 +3,9 @@
 .ember-tip {
   color: red;
 }
+
+.stage.selected {
+  background-color: green;
+  font-weight: bold;
+  color: white;
+}
