@@ -7,8 +7,10 @@ export default Component.extend({
       console.log('name admin-panel.js is: ', name)
       return this.sendAction('updateEventName', name)
     },
-    cancel () {
-      return this.sendAction('cancel')
+    updateMaxVotes (votes) {
+      console.log('updateMaxVotes called on admin-panel.js')
+      console.log('votes in admin-panel.js is: ', votes)
+      return this.sendAction('updateMaxVotes', votes)
     }
   }
 })

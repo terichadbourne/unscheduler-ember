@@ -7,9 +7,6 @@ export default Component.extend({
       console.log("event in event-name-form is: ", event)
       console.log("this.event.get('name') in event-name-form is: ", this.event.get('name'))
       return this.sendAction('updateEventName', this.event.get('name'))
-    },
-    cancel () {
-      return this.sendAction('cancel')
     }
   }
 })

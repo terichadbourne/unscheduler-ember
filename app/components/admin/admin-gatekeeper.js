@@ -8,12 +8,14 @@ export default Component.extend({
   isAdmin: alias('auth.isAdmin'),
   actions: {
     updateEventName (name) {
-      console.log('updateEventName called on admin-panel.js.js')
-      console.log('name admin-panel.js is: ', name)
+      console.log('updateEventName called on admin-gatekeeper.js')
+      console.log('nam in admin-gatekeeper.js is: ', name)
       return this.sendAction('updateEventName', name)
     },
-    cancel () {
-      return this.sendAction('cancel')
+    updateMaxVotes (votes) {
+      console.log('updateMaxVotes called on admin-gatekeeper.js')
+      console.log('votes in admin-gatekeeper.js is: ', votes)
+      return this.sendAction('updateMaxVotes', votes)
     }
   }
 })

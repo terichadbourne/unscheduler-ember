@@ -5,10 +5,18 @@ export default Route.extend({
     return this.get('store').findRecord('event', 1)
   },
   actions: {
-    updateEventName(name) {
+    updateEventName (name) {
       console.log('event name in admin.js is ', name)
       this.get('store').findRecord('event', 1).then(eventRecord => {
         eventRecord.set('name', name)
+        eventRecord.save()
+      })
+      .then(() => this.refresh())
+    },
+    updateMaxVotes (votes) {
+      console.log('votes in admin.js is ', votes)
+      this.get('store').findRecord('event', 1).then(eventRecord => {
+        eventRecord.set('max_votes', votes)
         eventRecord.save()
       })
       .then(() => this.refresh())

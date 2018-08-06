@@ -2,7 +2,8 @@
 {{#if isAdmin}}
 <p>Congrats! You have top secret admin clearance!</p>
   {{admin/admin-panel event=event
-                      updateEventName='updateEventName'}}
+                      updateEventName='updateEventName'
+                      updateMaxVotes='updateMaxVotes'}}
 {{else if isAuthenticated}}
 <p>Uh oh! You don't have admin status, so you can't access these settings. Please
   {{#link-to "sign-in"}}sign in {{/link-to}} again with an admin account or head

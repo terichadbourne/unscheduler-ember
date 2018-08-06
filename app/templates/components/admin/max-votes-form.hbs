@@ -1,0 +1,5 @@
+<form {{action 'updateMaxVotes' on="submit"}}>
+  <label for="name">Max Votes Per Attendee:</label>
+  {{input type="number" placeholder="Max Votes" value=event.max_votes id='max_votes' min="1" max="99"}}
+  <button type="submit">Update</button>
+</form>
