@@ -1,13 +1,7 @@
 <span class="ember-tip">admin-gatekeeper.hbs: </span>
-<ul class="ember-tip">
-<li>event.name is {{event.name}}</li>
-<li>proposals_open: {{event.proposals_open}}</li>
-<li>voting_open: {{event.voting_open}}</li>
-<li>schedule_finalized: {{event.schedule_finalized}}</li>
-<li>max_votes: {{event.max_votes}}</li>
-</ul>
 {{#if isAdmin}}
-  <p>Actual admin panel will go here</p>
+<p>Congrats! You have top secret admin clearance!</p>
+  {{admin/admin-panel event=event}}
 {{else if isAuthenticated}}
 <p>Uh oh! You don't have admin status, so you can't access these settings. Please
   {{#link-to "sign-in"}}sign in {{/link-to}} again with an admin account or head
