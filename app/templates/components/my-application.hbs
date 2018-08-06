@@ -1,4 +1,5 @@
 <span class="ember-tip">my-application.hbs: </span>
+
 {{#if isAdmin}}
 <span class="ember-tip">USER IS ADMIN</span>
 {{else if isAuthenticated}}
@@ -6,6 +7,13 @@
 {{else}}
   <span class="ember-tip">NO ONE IS SIGNED IN</span>
 {{/if}}
+<ul class="ember-tip">
+<li>event.name is {{event.name}}</li>
+<li>proposals_open: {{event.proposals_open}}</li>
+<li>voting_open: {{event.voting_open}}</li>
+<li>schedule_finalized: {{event.schedule_finalized}}</li>
+<li>max_votes: {{event.max_votes}}</li>
+</ul>
 
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
@@ -28,11 +36,24 @@
   {{/navbar.content}}
 {{/bs-navbar}}
 
-<h1>Event Name</h1>
+<h1>{{event.name}}</h1>
 
 {{#each flashMessages.queue as |flash|}}
   {{flash-message flash=flash}}
 {{/each}}
+
+<strong>
+  {{#if event.proposals_open}}
+    <p>Proposals are open. (put a component here)</p>
+  {{else if event.voting_open}}
+    <p>Voting is open. (put a component here)</p>
+  {{else if event.schedule_finalized}}
+    <p>Schedule is finalized. (put a component here)</p>
+  {{else}}
+    <p>Something's wrong. Can't figure out event status</p>
+  {{/if}}
+</strong>
+
 
 <div class="col-md-8 col-md-offset-2">
   {{outlet}}

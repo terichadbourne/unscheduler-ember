@@ -4,7 +4,9 @@ import { inject as service } from '@ember/service'
 export default Route.extend({
   auth: service(),
   flashMessages: service(),
-
+  model () {
+    return this.get('store').findRecord('event', 1)
+  },
   actions: {
     signOut () {
       this.get('auth').signOut()
