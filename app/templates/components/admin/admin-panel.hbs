@@ -1,15 +1,11 @@
 <span class="ember-tip">admin-panel.hbs: </span>
-<ul class="ember-tip">
-<li>event.name is {{event.name}}</li>
-<li>proposals_open: {{event.proposals_open}}</li>
-<li>voting_open: {{event.voting_open}}</li>
-<li>schedule_finalized: {{event.schedule_finalized}}</li>
-<li>max_votes: {{event.max_votes}}</li>
-</ul>
 
 {{admin/event-name-form event=event
                         updateEventName='updateEventName'}}
 <br>
 {{admin/max-votes-form event=event
-                        updateMaxVotes='updateMaxVotes'}}
+                       updateMaxVotes='updateMaxVotes'}}
+<br>
+{{admin/event-stage-form event=event
+                         setEventStage='setEventStage'}}
 <br>

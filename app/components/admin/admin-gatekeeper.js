@@ -16,6 +16,11 @@ export default Component.extend({
       console.log('updateMaxVotes called on admin-gatekeeper.js')
       console.log('votes in admin-gatekeeper.js is: ', votes)
       return this.sendAction('updateMaxVotes', votes)
+    },
+    setEventStage (stage) {
+      console.log('setEventStage called on admin-gatekeeper.js')
+      console.log('stage in admin-gatekeeper.js is: ', stage)
+      return this.sendAction('setEventStage', stage)
     }
   }
 })

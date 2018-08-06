@@ -11,6 +11,11 @@ export default Component.extend({
       console.log('updateMaxVotes called on admin-panel.js')
       console.log('votes in admin-panel.js is: ', votes)
       return this.sendAction('updateMaxVotes', votes)
+    },
+    setEventStage (stage) {
+      console.log('setEventStage called on admin-panel.js')
+      console.log('stage in admin-panel.js is: ', stage)
+      return this.sendAction('setEventStage', stage)
     }
   }
 })
