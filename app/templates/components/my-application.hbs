@@ -1,11 +1,23 @@
+<span class="ember-tip">my-application.hbs: </span>
+{{#if isAdmin}}
+<span class="ember-tip">USER IS ADMIN</span>
+{{else if isAuthenticated}}
+  <span class="ember-tip">USER IS NOT AN ADMIN</span>
+{{else}}
+  <span class="ember-tip">NO ONE IS SIGNED IN</span>
+{{/if}}
+
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
     {{navbar.toggle}}
-    {{#link-to "application" class="navbar-brand"}}Home{{/link-to}}
+    <strong>{{#link-to "application" class="navbar-brand"}}Unscheduler{{/link-to}}</strong>
   </div>
   {{#navbar.content}}
     {{#navbar.nav class='navbar-right' as |nav|}}
       {{#if isAuthenticated}}
+        {{#if isAdmin}}
+          {{#nav.item}}{{#nav.link-to "admin"}}Admin{{/nav.link-to}}{{/nav.item}}
+        {{/if}}
         {{#nav.item}}{{#nav.link-to "change-password"}}Change Password{{/nav.link-to}}{{/nav.item}}
         {{#nav.item}}<a href="#" {{action "signOut"}}>Sign Out</a>{{/nav.item}}
       {{else}}
@@ -16,7 +28,7 @@
   {{/navbar.content}}
 {{/bs-navbar}}
 
-<h1>Welcome to Ember!</h1>
+<h1>Event Name</h1>
 
 {{#each flashMessages.queue as |flash|}}
   {{flash-message flash=flash}}
