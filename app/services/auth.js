@@ -6,6 +6,7 @@ export default Service.extend({
   ajax: service(),
   credentials: storageFor('auth'),
   isAuthenticated: bool('credentials.token'),
+  isAdmin: bool('credentials.admin'),
 
   signUp (credentials) {
     return this.get('ajax').post('/sign-up', {
@@ -32,6 +33,8 @@ export default Service.extend({
       this.get('credentials').set('id', result.user.id)
       this.get('credentials').set('email', result.user.email)
       this.get('credentials').set('token', result.user.token)
+      this.get('credentials').set('admin', result.user.admin)
+      console.log('in signIn in auth service and result.user.admin is ', result.user.admin)
     })
   },
 

@@ -6,7 +6,9 @@ export default Component.extend({
   auth: service(),
 
   user: alias('auth.credentials.email'),
+  admin: alias('auth.credentials.Admin'),
   isAuthenticated: alias('auth.isAuthenticated'),
+  isAdmin: alias('auth.isAdmin'),
 
   actions: {
     signOut () {
