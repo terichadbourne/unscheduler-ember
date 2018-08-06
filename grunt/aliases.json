@@ -1,0 +1,15 @@
+{
+  "default": ["nag"],
+  "make-standard": ["eslint:fix"],
+  "nag": ["eslint:all", "jsonlint:all"],
+  "deploy": [
+    "shell:git-is-clean",
+    "shell:git-checkout-master",
+    "shell:git-push-master",
+    "shell:deploy-prepare",
+    "shell:deploy-dist",
+    "shell:deploy-publish",
+    "shell:clean-gh-pages",
+    "shell:return-to-master"
+  ]
+}
