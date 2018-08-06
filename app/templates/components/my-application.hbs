@@ -1,3 +1,12 @@
+<span class="ember-tip">my-application.hbs: </span>
+{{#if isAdmin}}
+<span class="ember-tip">USER IS ADMIN</span>
+{{else if isAuthenticated}}
+  <span class="ember-tip">USER IS NOT AN ADMIN</span>
+{{else}}
+  <span class="ember-tip">NO ONE IS SIGNED IN</span>
+{{/if}}
+
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
     {{navbar.toggle}}
