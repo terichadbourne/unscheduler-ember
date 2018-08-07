@@ -49,7 +49,9 @@
 
 <strong>
   {{#if event.proposals_open}}
-    <p>Proposals are open. (put a component here)</p>
+    {{propose-topics event=event
+                     isAuthenticated=isAuthenticated
+                     isAdmin=isAdmin}}
   {{else if event.voting_open}}
     <p>Voting is open. (put a component here)</p>
   {{else if event.schedule_finalized}}
