@@ -26,7 +26,7 @@ export default Route.extend({
     updateMaxVotes (votes) {
       console.log('votes in admin.js is ', votes)
       this.get('store').findRecord('event', 1).then(eventRecord => {
-        eventRecord.set('max_votes', votes)
+        eventRecord.set('maxVotes', votes)
         eventRecord.save()
       })
       .then(() => this.refresh())
@@ -43,18 +43,18 @@ export default Route.extend({
       console.log('setEventStage called on admin.js')
       console.log('newStage in admin.js is: ', newStage)
       this.get('store').findRecord('event', 1).then(eventRecord => {
-        if (newStage === 'proposals_open') {
-          eventRecord.set('voting_open', false)
-          eventRecord.set('schedule_finalized', false)
-          eventRecord.set('proposals_open', true)
-        } else if (newStage === 'voting_open') {
-          eventRecord.set('schedule_finalized', false)
-          eventRecord.set('proposals_open', false)
-          eventRecord.set('voting_open', true)
-        } else if (newStage === 'schedule_finalized') {
-          eventRecord.set('proposals_open', false)
-          eventRecord.set('voting_open', false)
-          eventRecord.set('schedule_finalized', true)
+        if (newStage === 'proposalsOpen') {
+          eventRecord.set('votingOpen', false)
+          eventRecord.set('scheduleFinalized', false)
+          eventRecord.set('proposalsOpen', true)
+        } else if (newStage === 'votingOpen') {
+          eventRecord.set('scheduleFinalized', false)
+          eventRecord.set('proposalsOpen', false)
+          eventRecord.set('votingOpen', true)
+        } else if (newStage === 'scheduleFinalized') {
+          eventRecord.set('proposalsOpen', false)
+          eventRecord.set('votingOpen', false)
+          eventRecord.set('scheduleFinalized', true)
         }
         eventRecord.save()
         .then(() => {

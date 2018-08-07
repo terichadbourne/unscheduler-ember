@@ -9,11 +9,14 @@
 {{/if}}
 <p class="ember-tip">current path: {{this.currentPath}}</p>
 <ul class="ember-tip">
+<li>event is {{event}}</li>
 <li>event.name is {{event.name}}</li>
-<li>proposals_open: {{event.proposals_open}}</li>
-<li>voting_open: {{event.voting_open}}</li>
-<li>schedule_finalized: {{event.schedule_finalized}}</li>
-<li>max_votes: {{event.max_votes}}</li>
+<li>proposalsOpen: {{event.proposalsOpen}}</li>
+<li>votingOpen: {{event.votingOpen}}</li>
+<li>scheduleFinalized: {{event.scheduleFinalized}}</li>
+<li>maxVotes: {{event.maxVotes}}</li>
+{{!-- <li>event.timeslots.startTime is: {{event.timeslots.startTime}}</li>
+<li>event.user.email is: {{event.user.email}}</li> --}}
 </ul>
 
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
@@ -48,13 +51,13 @@
 </div>
 
 <strong>
-  {{#if event.proposals_open}}
+  {{#if event.proposalsOpen}}
     {{propose-topics event=event
                      isAuthenticated=isAuthenticated
                      isAdmin=isAdmin}}
-  {{else if event.voting_open}}
+  {{else if event.votingOpen}}
     <p>Voting is open. (put a component here)</p>
-  {{else if event.schedule_finalized}}
+  {{else if event.scheduleFinalized}}
     <p>Schedule is finalized. (put a component here)</p>
   {{else}}
     <p>Something's wrong. Can't figure out event status</p>
