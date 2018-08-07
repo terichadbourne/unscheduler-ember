@@ -43,6 +43,10 @@
   {{flash-message flash=flash}}
 {{/each}}
 
+<div class="col-md-8 col-md-offset-2">
+  {{outlet}}
+</div>
+
 <strong>
   {{#if event.proposals_open}}
     <p>Proposals are open. (put a component here)</p>
@@ -54,8 +58,3 @@
     <p>Something's wrong. Can't figure out event status</p>
   {{/if}}
 </strong>
-
-
-<div class="col-md-8 col-md-offset-2">
-  {{outlet}}
-</div>
