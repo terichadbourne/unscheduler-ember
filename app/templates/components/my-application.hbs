@@ -7,6 +7,7 @@
 {{else}}
   <span class="ember-tip">NO ONE IS SIGNED IN</span>
 {{/if}}
+<p class="ember-tip">current path: {{this.currentPath}}</p>
 <ul class="ember-tip">
 <li>event.name is {{event.name}}</li>
 <li>proposals_open: {{event.proposals_open}}</li>
@@ -24,7 +25,7 @@
     {{#navbar.nav class='navbar-right' as |nav|}}
       {{#if isAuthenticated}}
         {{#if isAdmin}}
-          {{#nav.item}}{{#nav.link-to "admin"}}Admin{{/nav.link-to}}{{/nav.item}}
+            {{#nav.item}}{{#nav.link-to "admin"}}Admin{{/nav.link-to}}{{/nav.item}}
         {{/if}}
         {{#nav.item}}{{#nav.link-to "change-password"}}Change Password{{/nav.link-to}}{{/nav.item}}
         {{#nav.item}}<a href="#" {{action "signOut"}}>Sign Out</a>{{/nav.item}}
