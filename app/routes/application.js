@@ -16,6 +16,10 @@ export default Route.extend({
     })
   },
   actions: {
+    updateDiscussion (discussion) {
+      console.log('discussion title in application.js is ', discussion.get('title'))
+      discussion.save().then(() => this.refresh())
+    },
     signOut () {
       this.get('auth').signOut()
         .then(() => this.get('store').unloadAll())
@@ -28,7 +32,6 @@ export default Route.extend({
           .danger('There was a problem. Are you sure you\'re signed-in?')
         })
     },
-
     error (reason) {
       console.error(reason)
 

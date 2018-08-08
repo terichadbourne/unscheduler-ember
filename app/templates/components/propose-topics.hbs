@@ -10,4 +10,5 @@ model is {{model}}
   <p>{{#link-to 'sign-in'}}Sign in{{/link-to}} to propose an idea or vote on sessions.</p>
 {{/if}}
 
-{{propose-topics/discussion-list discussions=discussions}}
+{{propose-topics/discussion-list discussions=discussions
+                                 updateDiscussion='updateDiscussion'}}
