@@ -20,6 +20,10 @@ export default Component.extend({
     },
     deleteDiscussion (discussion) {
       return this.sendAction('deleteDiscussion', discussion)
+    },
+    createDiscussion (discussion) {
+      console.log('my-application.js discussion is', discussion)
+      return this.sendAction('createDiscussion', discussion)
     }
   }
 })

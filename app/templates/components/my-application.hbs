@@ -1,5 +1,3 @@
-<span class="ember-tip">my-application.hbs: </span>
-
 {{#if isAdmin}}
 <span class="ember-tip">USER IS ADMIN</span>
 {{else if isAuthenticated}}
@@ -71,6 +69,8 @@
                      discussions=discussions
                      isAuthenticated=isAuthenticated
                      isAdmin=isAdmin
+                     newDiscussion=newDiscussion
+                     createDiscussion='createDiscussion'
                      deleteDiscussion='deleteDiscussion'
                      updateDiscussion='updateDiscussion'}}
   {{else if event.votingOpen}}

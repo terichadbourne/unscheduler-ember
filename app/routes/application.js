@@ -10,7 +10,8 @@ export default Route.extend({
     return RSVP.hash({
       event: this.get('store').findRecord('event', 1),
       discussions: this.get('store').findAll('discussion'),
-      timeslots: this.get('store').findAll('timeslot')
+      timeslots: this.get('store').findAll('timeslot'),
+      newDiscussion: {}
       // votes: this.get('store').findAll('vote')
       // sessions: this.get('store').findAll('session')
     })
@@ -36,6 +37,21 @@ export default Route.extend({
       .catch(() => {
         this.get('flashMessages')
         .danger('There was a problem deleting that proposal. Please try again.')
+      })
+    },
+    createDiscussion (discussionPojo) {
+      console.log('application.js createDiscussion discussionPojo is: ', discussionPojo)
+      console.log('application.js discussionPojo.title is: ', discussionPojo.title)
+      // const updatedDiscussion = this.get('store').createRecord('discussion', {title: discussion.get('title')})
+      const emberDiscussion = this.get('store').createRecord('discussion', discussionPojo)
+      console.log('application.js discussion is', emberDiscussion)
+      return emberDiscussion.save()
+      .then(() => {
+        this.get('flashMessages').success('Discussion proposal saved.')
+      })
+      .catch(() => {
+        this.get('flashMessages')
+        .danger('There was a problem saving that proposal. Please try again.')
       })
     },
     signOut () {

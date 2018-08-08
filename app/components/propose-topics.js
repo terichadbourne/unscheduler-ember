@@ -10,6 +10,10 @@ export default Component.extend({
     },
     deleteDiscussion (discussion) {
       return this.sendAction('deleteDiscussion', discussion)
+    },
+    createDiscussion (discussion) {
+      console.log('propose-topics.js discussion is', discussion)
+      return this.sendAction('createDiscussion', discussion)
     }
   }
 })

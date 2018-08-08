@@ -1,7 +1,7 @@
 {{#if editing}}
   {{propose-topics/discussion-list/discussion-form discussion=discussion
-                    updateDiscussion='updateDiscussion'
-                    cancel='toggleEditing'}}
+                                                   updateDiscussion='updateDiscussion'
+                                                   cancel='toggleEditing'}}
 {{else}}
   <span>{{discussion.title}}</span>
   {{#if discussion.editable}}

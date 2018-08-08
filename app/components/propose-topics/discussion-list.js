@@ -11,6 +11,10 @@ export default Component.extend({
     },
     deleteDiscussion (discussion) {
       return this.sendAction('deleteDiscussion', discussion)
+    },
+    createDiscussion (discussion) {
+      console.log('discussion-list.js createDiscussion discussion is ', discussion)
+      this.sendAction('createDiscussion', discussion)
     }
   }
 })

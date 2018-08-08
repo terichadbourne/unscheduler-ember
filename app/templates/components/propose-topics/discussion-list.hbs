@@ -3,3 +3,10 @@
                                               deleteDiscussion='deleteDiscussion'
                                               updateDiscussion='updateDiscussion'}}
 {{/each}}
+<span>Add a new proposal:</span>
+{{propose-topics/discussion-list/new-discussion-form discussion=newDiscussion
+                                                     createDiscussion='createDiscussion'}}
+{{!-- <form {{action 'createDiscussion' on='submit'}}>
+  {{input placeholder='New Discussion Topic'}}
+  <button type='submit'>Save</button>
+</form> --}}
