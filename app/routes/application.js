@@ -28,6 +28,16 @@ export default Route.extend({
         .danger('There was a problem saving that update. Please try again.')
       })
     },
+    deleteDiscussion (discussion) {
+      discussion.destroyRecord()
+      .then(() => {
+        this.get('flashMessages').success('Proposal deleted.')
+      })
+      .catch(() => {
+        this.get('flashMessages')
+        .danger('There was a problem deleting that proposal. Please try again.')
+      })
+    },
     signOut () {
       this.get('auth').signOut()
         .then(() => this.get('store').unloadAll())

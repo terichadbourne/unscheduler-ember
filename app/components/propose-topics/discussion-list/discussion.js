@@ -13,6 +13,9 @@ export default Component.extend({
       this.toggleProperty('editing')
       return this.sendAction('updateDiscussion', discussion)
     },
+    deleteItem () {
+      return this.sendAction('deleteDiscussion', this.get('discussion'))
+    },
     toggleEditing () {
       console.log('current state of editing is: ', this.get('editing'))
       this.toggleProperty('editing')

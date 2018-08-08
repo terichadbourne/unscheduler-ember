@@ -8,6 +8,9 @@ export default Component.extend({
       console.log('discussion in discussion-list is is: ', discussion)
       console.log('discussion title in discussion-list is ', discussion.get('title'))
       return this.sendAction('updateDiscussion', discussion)
+    },
+    deleteDiscussion (discussion) {
+      return this.sendAction('deleteDiscussion', discussion)
     }
   }
 })

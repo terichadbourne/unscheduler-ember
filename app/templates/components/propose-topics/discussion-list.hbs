@@ -1,4 +1,5 @@
 {{#each discussions as |discussion|}}
   {{propose-topics/discussion-list/discussion discussion=discussion
+                                              deleteDiscussion='deleteDiscussion'
                                               updateDiscussion='updateDiscussion'}}
 {{/each}}
