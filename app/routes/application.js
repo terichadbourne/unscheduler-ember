@@ -17,45 +17,6 @@ export default Route.extend({
     })
   },
   actions: {
-    updateDiscussion (discussion) {
-      console.log('discussion title in application.js is ', discussion.get('title'))
-      discussion.save()
-      .then(() => {
-        this.get('flashMessages').success('Discussion proposal updated.')
-      })
-      .then(() => this.refresh())
-      .catch(() => {
-        this.get('flashMessages')
-        .danger('There was a problem saving that update. Please try again.')
-      })
-    },
-    deleteDiscussion (discussion) {
-      discussion.destroyRecord()
-      .then(() => {
-        this.get('flashMessages').success('Proposal deleted.')
-      })
-      .then(() => this.refresh())
-      .catch(() => {
-        this.get('flashMessages')
-        .danger('There was a problem deleting that proposal. Please try again.')
-      })
-    },
-    createDiscussion (discussionPojo) {
-      console.log('application.js createDiscussion discussionPojo is: ', discussionPojo)
-      console.log('application.js discussionPojo.title is: ', discussionPojo.title)
-      // const updatedDiscussion = this.get('store').createRecord('discussion', {title: discussion.get('title')})
-      const emberDiscussion = this.get('store').createRecord('discussion', discussionPojo)
-      console.log('application.js discussion is', emberDiscussion)
-      return emberDiscussion.save()
-      .then(() => {
-        this.get('flashMessages').success('Discussion proposal saved.')
-      })
-      .then(() => this.refresh())
-      .catch(() => {
-        this.get('flashMessages')
-        .danger('There was a problem saving that proposal. Please try again.')
-      })
-    },
     signOut () {
       this.get('auth').signOut()
         .then(() => this.get('store').unloadAll())
