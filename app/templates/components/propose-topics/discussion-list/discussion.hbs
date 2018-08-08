@@ -1,8 +1,7 @@
 {{#if editing}}
-  <span>form will go here</span>
-  {{!-- {{discussion-form discussion=discussion
+  {{propose-topics/discussion-list/discussion-form discussion=discussion
                     updateDiscussion='updateDiscussion'
-                    cancel='toggleEditing'}} --}}
+                    cancel='toggleEditing'}}
 {{else}}
   <span>{{discussion.title}}</span>
   {{#if discussion.editable}}
