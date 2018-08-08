@@ -18,7 +18,15 @@ export default Route.extend({
   actions: {
     updateDiscussion (discussion) {
       console.log('discussion title in application.js is ', discussion.get('title'))
-      discussion.save().then(() => this.refresh())
+      discussion.save()
+      .then(() => {
+        this.get('flashMessages').success('Discussion proposal updated.')
+      })
+      .then(() => this.refresh())
+      .catch(() => {
+        this.get('flashMessages')
+        .danger('There was a problem saving that update. Please try again.')
+      })
     },
     signOut () {
       this.get('auth').signOut()
