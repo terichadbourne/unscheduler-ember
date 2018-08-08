@@ -1,5 +1,11 @@
-<span class="ember-tip">application.hbs</span>
-<span class="ember-tip">current path: {{this.currentPath}}</span>
+{{!-- <span class="ember-tip">application.hbs</span>
+<span class="ember-tip">current path: {{this.currentPath}}</span> --}}
 {{my-application signOut="signOut"
-                 event=model
-                 currentPath=currentPath}}
+                 event=model.event
+                 timeslots=model.timeslots
+                 discussions=model.discussions
+                 newDiscussion=model.newDiscussion
+                 currentPath=currentPath
+                 createDiscussion='createDiscussion'
+                 deleteDiscussion='deleteDiscussion'
+                 updateDiscussion='updateDiscussion'}}

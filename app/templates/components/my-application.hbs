@@ -1,6 +1,5 @@
-<span class="ember-tip">my-application.hbs: </span>
-
-{{#if isAdmin}}
+{{!-- WORKING CLUES  --}}
+{{!-- {{#if isAdmin}}
 <span class="ember-tip">USER IS ADMIN</span>
 {{else if isAuthenticated}}
   <span class="ember-tip">USER IS NOT AN ADMIN</span>
@@ -9,12 +8,23 @@
 {{/if}}
 <p class="ember-tip">current path: {{this.currentPath}}</p>
 <ul class="ember-tip">
+<li>event is {{event}}</li>
 <li>event.name is {{event.name}}</li>
-<li>proposals_open: {{event.proposals_open}}</li>
-<li>voting_open: {{event.voting_open}}</li>
-<li>schedule_finalized: {{event.schedule_finalized}}</li>
-<li>max_votes: {{event.max_votes}}</li>
-</ul>
+<li>proposalsOpen: {{event.proposalsOpen}}</li>
+<li>votingOpen: {{event.votingOpen}}</li>
+<li>scheduleFinalized: {{event.scheduleFinalized}}</li>
+<li>maxVotes: {{event.maxVotes}}</li>
+</ul> --}}
+
+{{!-- THIS CODE NOT WORKING BECAUSE OF RELATIONSHIP ISSUES --}}
+{{!-- trying to print list of start times:
+<ul>
+{{#each event.timeslots as |timeslot|}}
+  <li>{{timeslot.startTime}}</li>
+{{/each}}
+</ul> --}}
+{{!-- <li>event.timeslots.startTime is: {{event.timeslots}}</li> --}}
+{{!-- <li>event.user.email is: {{event.user.email}}</li> --}}
 
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
@@ -43,19 +53,31 @@
   {{flash-message flash=flash}}
 {{/each}}
 
+<div>
+  {{outlet}}
+</div>
+
 <strong>
-  {{#if event.proposals_open}}
-    <p>Proposals are open. (put a component here)</p>
-  {{else if event.voting_open}}
+  {{#if event.proposalsOpen}}
+    {{propose-topics event=event
+                     discussions=discussions
+                     isAuthenticated=isAuthenticated
+                     isAdmin=isAdmin
+                     newDiscussion=newDiscussion
+                     createDiscussion='createDiscussion'
+                     deleteDiscussion='deleteDiscussion'
+                     updateDiscussion='updateDiscussion'}}
+  {{else if event.votingOpen}}
     <p>Voting is open. (put a component here)</p>
-  {{else if event.schedule_finalized}}
+  {{else if event.scheduleFinalized}}
     <p>Schedule is finalized. (put a component here)</p>
+    <p class="ember-tip">this is trying to build a list of timeslots from RSVP within my-application.hbs</p>
+    <ul>
+      {{#each timeslots as |timeslot|}}
+        <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
+      {{/each}}
+    </ul>
   {{else}}
     <p>Something's wrong. Can't figure out event status</p>
   {{/if}}
 </strong>
-
-
-<div class="col-md-8 col-md-offset-2">
-  {{outlet}}
-</div>

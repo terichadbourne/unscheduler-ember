@@ -1,0 +1,11 @@
+{{#if editing}}
+  {{propose-topics/discussion-list/discussion-form discussion=discussion
+                                                   updateDiscussion='updateDiscussion'
+                                                   cancel='toggleEditing'}}
+{{else}}
+  <span>{{discussion.title}}</span>
+  {{#if discussion.editable}}
+  <button class='btn-xs button-primary'{{action 'toggleEditing'}}>Edit</button>
+  <button class='btn-xs button-danger' {{action 'deleteItem'}}>Delete</button>
+  {{/if}}
+{{/if}}

@@ -1,0 +1,5 @@
+<form {{action 'updateDiscussion' on="submit"}}>
+  {{input placeholder="Discussion Topic" value=discussion.title}}
+  <button type="submit">Save Discussion</button>
+  <button {{action 'cancel'}}>Cancel</button>
+</form>

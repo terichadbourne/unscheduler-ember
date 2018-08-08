@@ -1,8 +1,11 @@
-<span class="ember-tip">admin.hbs</span>
-<h2>Admin Settings</h2>
-{{#link-to "application"}}Close Admin Panel{{/link-to}}
+<div class="bordered admin">
+  {{!-- <span class="ember-tip">admin.hbs</span> --}}
+  <h2>Admin Settings</h2>
+  {{#link-to "application"}}<button>Close Admin Panel</button>{{/link-to}}
 
-{{admin/admin-gatekeeper event=model
-                         updateEventName='updateEventName'
-                         updateMaxVotes='updateMaxVotes'
-                         setEventStage='setEventStage'}}
+  {{admin/admin-gatekeeper event=model
+                           updateEventName='updateEventName'
+                           updateMaxVotes='updateMaxVotes'
+                           setEventStage='setEventStage'}}
+
+</div>

@@ -1,18 +1,18 @@
 <strong> Click to set current event stage: </strong>
-{{#if event.proposals_open}}
-  <button class="stage selected" id="proposals_open" {{action "setEventStage"}}>Proposals Open</button>
+{{#if event.proposalsOpen}}
+  <button class="stage selected" id="proposalsOpen" {{action "setEventStage"}}>Proposals Open</button>
 {{else}}
-  <button class="stage" id="proposals_open" {{action "setEventStage"}}>Proposals Open</button>
+  <button class="stage" id="proposalsOpen" {{action "setEventStage"}}>Proposals Open</button>
 {{/if}}
 
-{{#if event.voting_open}}
-  <button class="stage selected" id="voting_open" {{action "setEventStage"}}>Voting Open</button>
+{{#if event.votingOpen}}
+  <button class="stage selected" id="votingOpen" {{action "setEventStage"}}>Voting Open</button>
 {{else}}
-  <button class="stage" id="voting_open" {{action "setEventStage"}}>Voting Open</button>
+  <button class="stage" id="votingOpen" {{action "setEventStage"}}>Voting Open</button>
 {{/if}}
 
-{{#if event.schedule_finalized}}
-  <button class="stage selected" id="schedule_finalized" {{action "setEventStage"}}>Schedule Finalized</button>
+{{#if event.scheduleFinalized}}
+  <button class="stage selected" id="scheduleFinalized" {{action "setEventStage"}}>Schedule Finalized</button>
 {{else}}
-  <button class="stage" id="schedule_finalized" {{action "setEventStage"}}>Schedule Finalized</button>
+  <button class="stage" id="scheduleFinalized" {{action "setEventStage"}}>Schedule Finalized</button>
 {{/if}}
