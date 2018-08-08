@@ -1,11 +1,19 @@
 import Route from '@ember/routing/route'
 import { inject as service } from '@ember/service'
+import RSVP from 'rsvp'
 
 export default Route.extend({
   auth: service(),
   flashMessages: service(),
   model () {
-    return this.get('store').findRecord('event', 1)
+    // return this.get('store').findRecord('event', 1)
+    return RSVP.hash({
+      event: this.get('store').findRecord('event', 1),
+      discussions: this.get('store').findAll('discussion'),
+      timeslots: this.get('store').findAll('timeslot')
+      // votes: this.get('store').findAll('vote')
+      // sessions: this.get('store').findAll('session')
+    })
   },
   actions: {
     signOut () {

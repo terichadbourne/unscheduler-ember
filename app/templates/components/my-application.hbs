@@ -15,9 +15,24 @@
 <li>votingOpen: {{event.votingOpen}}</li>
 <li>scheduleFinalized: {{event.scheduleFinalized}}</li>
 <li>maxVotes: {{event.maxVotes}}</li>
-{{!-- <li>event.timeslots.startTime is: {{event.timeslots.startTime}}</li>
-<li>event.user.email is: {{event.user.email}}</li> --}}
 </ul>
+
+<p class="ember-tip">this is trying to build a list of timeslots from RSVP within my-application.hbs</p>
+<ul>
+  {{#each timeslots as |timeslot|}}
+    <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
+  {{/each}}
+</ul>
+
+//THIS CODE NOT WORKING BECAUSE OF RELATIONSHIP ISSUES
+{{!-- trying to print list of start times:
+<ul>
+{{#each event.timeslots as |timeslot|}}
+  <li>{{timeslot.startTime}}</li>
+{{/each}}
+</ul> --}}
+{{!-- <li>event.timeslots.startTime is: {{event.timeslots}}</li> --}}
+{{!-- <li>event.user.email is: {{event.user.email}}</li> --}}
 
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
@@ -53,6 +68,7 @@
 <strong>
   {{#if event.proposalsOpen}}
     {{propose-topics event=event
+                     discussions=discussions
                      isAuthenticated=isAuthenticated
                      isAdmin=isAdmin}}
   {{else if event.votingOpen}}

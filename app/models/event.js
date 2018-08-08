@@ -5,7 +5,7 @@ export default DS.Model.extend({
   proposalsOpen: DS.attr('boolean'),
   votingOpen: DS.attr('boolean'),
   scheduleFinalized: DS.attr('boolean'),
-  maxVotes: DS.attr('number')
-  // timeslots: DS.hasMany('timeslot'),
+  maxVotes: DS.attr('number'),
+  timeslots: DS.hasMany('timeslot')
   // user: DS.belongsTo('user')
 })

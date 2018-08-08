@@ -1,5 +1,7 @@
 <span class="ember-tip">application.hbs</span>
 <span class="ember-tip">current path: {{this.currentPath}}</span>
 {{my-application signOut="signOut"
-                 event=model
+                 event=model.event
+                 timeslots=model.timeslots
+                 discussions=model.discussions
                  currentPath=currentPath}}
