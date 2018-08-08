@@ -1,4 +1,5 @@
-{{#if isAdmin}}
+{{!-- WORKING CLUES  --}}
+{{!-- {{#if isAdmin}}
 <span class="ember-tip">USER IS ADMIN</span>
 {{else if isAuthenticated}}
   <span class="ember-tip">USER IS NOT AN ADMIN</span>
@@ -13,16 +14,9 @@
 <li>votingOpen: {{event.votingOpen}}</li>
 <li>scheduleFinalized: {{event.scheduleFinalized}}</li>
 <li>maxVotes: {{event.maxVotes}}</li>
-</ul>
+</ul> --}}
 
-<p class="ember-tip">this is trying to build a list of timeslots from RSVP within my-application.hbs</p>
-<ul>
-  {{#each timeslots as |timeslot|}}
-    <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
-  {{/each}}
-</ul>
-
-//THIS CODE NOT WORKING BECAUSE OF RELATIONSHIP ISSUES
+{{!-- THIS CODE NOT WORKING BECAUSE OF RELATIONSHIP ISSUES --}}
 {{!-- trying to print list of start times:
 <ul>
 {{#each event.timeslots as |timeslot|}}
@@ -59,7 +53,7 @@
   {{flash-message flash=flash}}
 {{/each}}
 
-<div class="col-md-8 col-md-offset-2">
+<div>
   {{outlet}}
 </div>
 
@@ -77,6 +71,12 @@
     <p>Voting is open. (put a component here)</p>
   {{else if event.scheduleFinalized}}
     <p>Schedule is finalized. (put a component here)</p>
+    <p class="ember-tip">this is trying to build a list of timeslots from RSVP within my-application.hbs</p>
+    <ul>
+      {{#each timeslots as |timeslot|}}
+        <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
+      {{/each}}
+    </ul>
   {{else}}
     <p>Something's wrong. Can't figure out event status</p>
   {{/if}}

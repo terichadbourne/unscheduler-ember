@@ -34,6 +34,7 @@ export default Route.extend({
       .then(() => {
         this.get('flashMessages').success('Proposal deleted.')
       })
+      .then(() => this.refresh())
       .catch(() => {
         this.get('flashMessages')
         .danger('There was a problem deleting that proposal. Please try again.')
@@ -49,6 +50,7 @@ export default Route.extend({
       .then(() => {
         this.get('flashMessages').success('Discussion proposal saved.')
       })
+      .then(() => this.refresh())
       .catch(() => {
         this.get('flashMessages')
         .danger('There was a problem saving that proposal. Please try again.')
