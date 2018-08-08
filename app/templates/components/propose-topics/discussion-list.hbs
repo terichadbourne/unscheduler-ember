@@ -1,3 +1,4 @@
+
 <h3>Current Proposals</h3>
 {{#each discussions as |discussion|}}
   {{propose-topics/discussion-list/discussion discussion=discussion
@@ -5,12 +6,7 @@
                                               updateDiscussion='updateDiscussion'}}
 {{/each}}
 {{#if isAuthenticated}}
-
-<h3>Add a new proposal:</h3>
-{{propose-topics/discussion-list/new-discussion-form discussion=newDiscussion
-                                                     createDiscussion='createDiscussion'}}
+  <h3>Add a new proposal:</h3>
+  {{propose-topics/discussion-list/new-discussion-form discussion=newDiscussion
+                                                       createDiscussion='createDiscussion'}}
 {{/if}}
-{{!-- <form {{action 'createDiscussion' on='submit'}}>
-  {{input placeholder='New Discussion Topic'}}
-  <button type='submit'>Save</button>
-</form> --}}

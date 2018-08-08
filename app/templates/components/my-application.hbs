@@ -1,5 +1,6 @@
 {{!-- WORKING CLUES  --}}
-{{!-- {{#if isAdmin}}
+{{!-- <p class="ember-tip">my-application.hbs</p>
+{{#if isAdmin}}
 <span class="ember-tip">USER IS ADMIN</span>
 {{else if isAuthenticated}}
   <span class="ember-tip">USER IS NOT AN ADMIN</span>
@@ -29,7 +30,12 @@
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
     {{navbar.toggle}}
-    <strong>{{#link-to "application" class="navbar-brand"}}Unscheduler{{/link-to}}</strong>
+    <strong>{{#link-to "application" class="navbar-brand"}}
+      Unscheduler > {{event.name}} >
+      {{#if event.proposalsOpen}} Proposing{{/if}}
+      {{#if event.votingOpen}} Voting{{/if}}
+      {{#if event.scheduleFinalized}} Schedule{{/if}}
+      {{/link-to}}</strong>
   </div>
   {{#navbar.content}}
     {{#navbar.nav class='navbar-right' as |nav|}}
@@ -47,8 +53,6 @@
   {{/navbar.content}}
 {{/bs-navbar}}
 
-<h1>{{event.name}}</h1>
-
 {{#each flashMessages.queue as |flash|}}
   {{flash-message flash=flash}}
 {{/each}}
@@ -56,28 +60,3 @@
 <div>
   {{outlet}}
 </div>
-
-<strong>
-  {{#if event.proposalsOpen}}
-    {{propose-topics event=event
-                     discussions=discussions
-                     isAuthenticated=isAuthenticated
-                     isAdmin=isAdmin
-                     newDiscussion=newDiscussion
-                     createDiscussion='createDiscussion'
-                     deleteDiscussion='deleteDiscussion'
-                     updateDiscussion='updateDiscussion'}}
-  {{else if event.votingOpen}}
-    <p>Voting is open. (put a component here)</p>
-  {{else if event.scheduleFinalized}}
-    <p>Schedule is finalized. (put a component here)</p>
-    <p class="ember-tip">this is trying to build a list of timeslots from RSVP within my-application.hbs</p>
-    <ul>
-      {{#each timeslots as |timeslot|}}
-        <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
-      {{/each}}
-    </ul>
-  {{else}}
-    <p>Something's wrong. Can't figure out event status</p>
-  {{/if}}
-</strong>

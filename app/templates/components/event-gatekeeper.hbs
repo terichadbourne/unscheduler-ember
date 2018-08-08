@@ -1,0 +1,22 @@
+{{!-- <span class='ember-tip'>event.gatekeeper</span> --}}
+  {{#if event.proposalsOpen}}
+    {{propose-topics event=event
+                     discussions=discussions
+                     isAuthenticated=isAuthenticated
+                     isAdmin=isAdmin
+                     newDiscussion=newDiscussion
+                     createDiscussion='createDiscussion'
+                     deleteDiscussion='deleteDiscussion'
+                     updateDiscussion='updateDiscussion'}}
+  {{else if event.votingOpen}}
+    <p>Voting is open. (put a component here)</p>
+  {{else if event.scheduleFinalized}}
+    <p>Schedule is finalized. (put a component here)</p>
+    <ul>
+      {{#each timeslots as |timeslot|}}
+        <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p class='ember-tip'>Something's wrong. Can't figure out event status</p>
+  {{/if}}
