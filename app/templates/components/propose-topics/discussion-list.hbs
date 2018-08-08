@@ -1,10 +1,12 @@
+<h3>Current Proposals</h3>
 {{#each discussions as |discussion|}}
   {{propose-topics/discussion-list/discussion discussion=discussion
                                               deleteDiscussion='deleteDiscussion'
                                               updateDiscussion='updateDiscussion'}}
 {{/each}}
 {{#if isAuthenticated}}
-<span>Add a new proposal:</span>
+
+<h3>Add a new proposal:</h3>
 {{propose-topics/discussion-list/new-discussion-form discussion=newDiscussion
                                                      createDiscussion='createDiscussion'}}
 {{/if}}
