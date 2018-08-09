@@ -7,6 +7,9 @@ export default Component.extend({
   isAuthenticated: alias('auth.isAuthenticated'),
   isAdmin: alias('auth.isAdmin'),
   actions: {
+    createTimeslot (timeslotPojo) {
+      return this.sendAction('createTimeslot', timeslotPojo)
+    },
     updateEventName (name) {
       console.log('updateEventName called on admin-gatekeeper.js')
       console.log('nam in admin-gatekeeper.js is: ', name)

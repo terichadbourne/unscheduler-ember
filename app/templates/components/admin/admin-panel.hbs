@@ -8,3 +8,15 @@
 {{admin/event-stage-form event=event
                          setEventStage='setEventStage'}}
 <br>
+
+<h3>Current Timeslots</h3>
+<ul>
+  {{#each event.timeslots as |timeslot|}}
+  <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
+  {{/each}}
+</ul>
+<br>
+<h3>Create a timeslot</h3>
+{{admin/timeslots-form   event=event
+                         createTimeslot='createTimeslot'}}
+<br>

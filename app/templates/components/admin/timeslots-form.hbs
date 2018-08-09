@@ -1,0 +1,16 @@
+<h3>Create Timeslots</h3>
+
+<form {{action 'requestTimeslots' on="submit"}}>
+  <label for="timeslotsQty">Timeslots Available:</label>
+  {{input type="number" placeholder="Timeslots Required" value=timeslotsRequest.timeslotsQty id="timeslotsQty" min="1" max="5"}}
+  <label for="roomsQty">Rooms Available:</label>
+  {{input type="number" placeholder="Event Name" value=timeslotsRequest.roomsQty id="roomsQty" min="1" max="5"}}
+  <button type="submit">Set Up Timeslots</button>
+
+</form>
+
+<ul>
+  {{#each newTimeslots as |timeslot|}}
+    <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{roomName}})</li>
+  {{/each}}
+</ul>
