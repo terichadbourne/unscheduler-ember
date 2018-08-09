@@ -2,6 +2,9 @@ import Component from '@ember/component';
 
 export default Component.extend({
   actions: {
+    updateTimeslot (timeslot) {
+      return this.sendAction('updateTimeslot', timeslot)
+    },
     updateEventName (name) {
       console.log('updateEventName called on admin-panel.js.js')
       console.log('name admin-panel.js is: ', name)

@@ -1,0 +1,10 @@
+<hr>
+<form {{action 'updateTimeslot' on="submit"}}>
+  <label>Start Time</label>
+  {{input placeholder="New Start Time" value=timeslot.startTime }}
+  <label>End Time</label>
+  {{input placeholder="New End Time" value=timeslot.endTime}}
+  <label>Room Name Time</label>
+  {{input placeholder="New Room Name" value=timeslot.roomName }}
+  <button type="submit">Update</button>
+</form>

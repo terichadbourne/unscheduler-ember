@@ -1,5 +1,6 @@
 <ul>
   {{#each timeslots as |timeslot|}}
-    <li> {{timeslot.displayTime}} <em>({{timeslot.roomName}})</em></li>
+    {{admin/update-timeslot-form timeslot=timeslot
+                                 updateTimeslot=updateTimeslot}}
   {{/each}}
 </ul>

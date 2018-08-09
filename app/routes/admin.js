@@ -30,6 +30,10 @@ export default Route.extend({
         })
       })
     },
+    updateTimeslot (timeslot) {
+      console.log('in updateTimeslot in admin route and timeslot is: ', timeslot)
+      timeslot.save()
+    },
     updateEventName (name) {
       console.log('event name in admin.js is ', name)
       this.get('store').findRecord('event', 1).then(eventRecord => {

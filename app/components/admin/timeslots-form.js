@@ -2,10 +2,31 @@ import Component from '@ember/component'
 
 export default Component.extend({
   timeslotsRequest: {},
+  roomNames: [],
+  displayRoomNames: false,
   // newTimeslots: [],
   actions: {
+    updateTimeslot (timeslot) {
+      return this.sendAction('updateTimeslot', timeslot)
+    },
     deleteAllTimeslots () {
       return this.sendAction('deleteAllTimeslots')
+    },
+    toggleRoomNames () {
+      // const updatedRoomsArray = []
+      // this.get('timeslots.roomNames')
+      // .then((roomNames) => {
+      //   roomNames.forEach((timeslot) => {
+      //   console.log('roomName is ', roomName)
+      //   if (updatedRoomsArray.includes(roomName)) {
+      //   } else {
+      //     updatedRoomsArray.push(roomName)
+      //   }
+      // })
+      // this.set('roomNames', updatedRoomsArray)
+      this.toggleProperty('displayRoomNames')
+      // console.log('updatedRoomsArray is', updatedRoomsArray)
+      // console.log("this.get('roomNames') is ", this.get('roomNames'))
     },
     createTimeslots () {
       console.log('this.event.get(id) is ', this.event.get('id'))

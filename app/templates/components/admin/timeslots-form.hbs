@@ -17,11 +17,32 @@
 {{#if event.timeslots}}
   <h3>Your Schedule</h3>
   <p> Based on the parameters you supplied, here are your timeslots: </p>
-  {{admin/new-timeslots-display event=event
-                                timeslots=event.timeslots}}
+  {{#each event.timeslots as |timeslot|}}
+    <li>{{timeslot.displayTime}} <em>({{timeslot.roomName}})</em></li>
+  {{/each}}
+
+
+
   <br>
-  <strong>Made a mistake?</strong>
-  If you need a different number of rooms or timeslots, you can
-  delete your existing schedule and start over.
+  <h4>Made a mistake?</h4>
+  <p>If you need a different number of rooms or timeslots, you can
+  delete your existing schedule and start over.</p>
   <button {{action 'deleteAllTimeslots'}}>Start Over</button>
+  <br>
+  <h4>Ready to update room names and times?</h4>
+  <p>You can update timeslots individually in a chaotic UI!</p>
+  {{#unless displayRoomNames}}
+    <button {{action 'toggleRoomNames'}}>Update Timeslot Detail</button>
+  {{/unless}}
+  {{#if displayRoomNames}}
+    <button {{action 'toggleRoomNames'}}>Hide Timeslot Editor</button>
+    {{admin/new-timeslots-display event=event
+                                  timeslots=event.timeslots
+                                  updateTimeslot=updateTimeslot}}
+  <button {{action 'toggleRoomNames'}}>Hide Timeslot Editor</button>
+    <br>
+    {{admin/room-names-update event=event
+                              roomNames=roomNames
+                              timeslots=event.timeslots}}
+  {{/if}}
 {{/if}}

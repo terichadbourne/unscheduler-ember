@@ -7,6 +7,9 @@ export default Component.extend({
   isAuthenticated: alias('auth.isAuthenticated'),
   isAdmin: alias('auth.isAdmin'),
   actions: {
+    updateTimeslot (timeslot) {
+      return this.sendAction('updateTimeslot', timeslot)
+    },
     createTimeslots (newTimeslots) {
       return this.sendAction('createTimeslots', newTimeslots)
     },
