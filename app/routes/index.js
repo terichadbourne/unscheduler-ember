@@ -17,13 +17,10 @@ export default Route.extend({
       discussions: this.get('store').findAll('discussion'),
       timeslots: this.get('store').findAll('timeslot'),
       newDiscussion: {}
-      // votes: this.get('store').findAll('vote')
-      // sessions: this.get('store').findAll('session')
     })
   },
   actions: {
     updateDiscussion (discussion) {
-      console.log('discussion title in application.js is ', discussion.get('title'))
       discussion.save()
       .then(() => {
         this.get('flashMessages').success('Discussion proposal updated.')
@@ -46,11 +43,7 @@ export default Route.extend({
       })
     },
     createDiscussion (discussionPojo) {
-      console.log('application.js createDiscussion discussionPojo is: ', discussionPojo)
-      console.log('application.js discussionPojo.title is: ', discussionPojo.title)
-      // const updatedDiscussion = this.get('store').createRecord('discussion', {title: discussion.get('title')})
       const emberDiscussion = this.get('store').createRecord('discussion', discussionPojo)
-      console.log('application.js discussion is', emberDiscussion)
       return emberDiscussion.save()
       .then(() => {
         this.get('flashMessages').success('Discussion proposal saved.')

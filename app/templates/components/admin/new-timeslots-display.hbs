@@ -1,0 +1,6 @@
+<ul>
+  {{#each timeslots as |timeslot|}}
+    {{admin/update-timeslot-form timeslot=timeslot
+                                 updateTimeslot=updateTimeslot}}
+  {{/each}}
+</ul>

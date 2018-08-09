@@ -7,20 +7,23 @@ export default Component.extend({
   isAuthenticated: alias('auth.isAuthenticated'),
   isAdmin: alias('auth.isAdmin'),
   actions: {
+    updateTimeslot (timeslot) {
+      return this.sendAction('updateTimeslot', timeslot)
+    },
+    createTimeslots (newTimeslots) {
+      return this.sendAction('createTimeslots', newTimeslots)
+    },
     updateEventName (name) {
-      console.log('updateEventName called on admin-gatekeeper.js')
-      console.log('nam in admin-gatekeeper.js is: ', name)
       return this.sendAction('updateEventName', name)
     },
     updateMaxVotes (votes) {
-      console.log('updateMaxVotes called on admin-gatekeeper.js')
-      console.log('votes in admin-gatekeeper.js is: ', votes)
       return this.sendAction('updateMaxVotes', votes)
     },
     setEventStage (stage) {
-      console.log('setEventStage called on admin-gatekeeper.js')
-      console.log('stage in admin-gatekeeper.js is: ', stage)
       return this.sendAction('setEventStage', stage)
+    },
+    deleteAllTimeslots () {
+      return this.sendAction('deleteAllTimeslots')
     }
   }
 })

@@ -1,0 +1,16 @@
+room names go here
+<p>event.roomNames looped:</p>
+<ul>
+  {{#each event.roomNames as |roomName|}}
+    <li>{{roomName}}</li>
+  {{/each}}
+</ul>
+
+<p>roomNames from controller instead looped:</p>
+<ul>
+  {{#each roomNames as |roomName|}}
+    <li>{{roomName}}</li>
+  {{/each}}
+</ul>
+
+<p>{{roomNames}}</p>

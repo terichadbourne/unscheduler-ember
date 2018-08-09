@@ -13,16 +13,12 @@ export default Component.extend({
       this.sendAction('signOut')
     },
     updateDiscussion (discussion) {
-      console.log('updateDiscussion called on my-application.js')
-      console.log('discussion in my-application is is: ', discussion)
-      console.log('discussion title in my-application is ', discussion.get('title'))
       return this.sendAction('updateDiscussion', discussion)
     },
     deleteDiscussion (discussion) {
       return this.sendAction('deleteDiscussion', discussion)
     },
     createDiscussion (discussion) {
-      console.log('my-application.js discussion is', discussion)
       return this.sendAction('createDiscussion', discussion)
     }
   }

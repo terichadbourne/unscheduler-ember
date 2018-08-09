@@ -2,8 +2,8 @@ import Component from '@ember/component'
 
 export default Component.extend({
   actions: {
-    updateMaxVotes () {
-      return this.sendAction('updateMaxVotes', this.event.get('maxVotes'))
+    updateTimeslot (timeslot) {
+      return this.sendAction('updateTimeslot', timeslot)
     }
   }
 })

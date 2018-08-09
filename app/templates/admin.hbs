@@ -1,11 +1,10 @@
-<div class="bordered admin">
-  {{!-- <span class="ember-tip">admin.hbs</span> --}}
   <h2>Admin Settings</h2>
   {{#link-to "application"}}<button>Close Admin Panel</button>{{/link-to}}
 
   {{admin/admin-gatekeeper event=model
                            updateEventName='updateEventName'
                            updateMaxVotes='updateMaxVotes'
+                           createTimeslots='createTimeslots'
+                           updateTimeslot='updateTimeslot'
+                           deleteAllTimeslots='deleteAllTimeslots'
                            setEventStage='setEventStage'}}
-
-</div>

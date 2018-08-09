@@ -1,31 +1,3 @@
-{{!-- WORKING CLUES  --}}
-{{!-- <p class="ember-tip">my-application.hbs</p>
-{{#if isAdmin}}
-<span class="ember-tip">USER IS ADMIN</span>
-{{else if isAuthenticated}}
-  <span class="ember-tip">USER IS NOT AN ADMIN</span>
-{{else}}
-  <span class="ember-tip">NO ONE IS SIGNED IN</span>
-{{/if}}
-<p class="ember-tip">current path: {{this.currentPath}}</p>
-<ul class="ember-tip">
-<li>event is {{event}}</li>
-<li>event.name is {{event.name}}</li>
-<li>proposalsOpen: {{event.proposalsOpen}}</li>
-<li>votingOpen: {{event.votingOpen}}</li>
-<li>scheduleFinalized: {{event.scheduleFinalized}}</li>
-<li>maxVotes: {{event.maxVotes}}</li>
-</ul> --}}
-
-{{!-- THIS CODE NOT WORKING BECAUSE OF RELATIONSHIP ISSUES --}}
-{{!-- trying to print list of start times:
-<ul>
-{{#each event.timeslots as |timeslot|}}
-  <li>{{timeslot.startTime}}</li>
-{{/each}}
-</ul> --}}
-{{!-- <li>event.timeslots.startTime is: {{event.timeslots}}</li> --}}
-{{!-- <li>event.user.email is: {{event.user.email}}</li> --}}
 
 {{#bs-navbar type=(if inverse 'inverse') fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
