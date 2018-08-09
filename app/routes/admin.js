@@ -15,10 +15,8 @@ export default Route.extend({
   },
   actions: {
     createTimeslots (newTimeslots) {
-      console.log('in createTimeslot in admin.js and newTimeslots is: ', newTimeslots)
       newTimeslots.forEach((timeslotPojo) => {
         const emberTimeslot = this.get('store').createRecord('timeslot', timeslotPojo)
-        console.log('admin.js emberTimeslot is', emberTimeslot)
         return emberTimeslot.save()
         .then(() => {
           this.get('flashMessages').success('New timeslot saved.')
@@ -31,7 +29,6 @@ export default Route.extend({
       })
     },
     updateTimeslot (timeslot) {
-      console.log('in updateTimeslot in admin route and timeslot is: ', timeslot)
       timeslot.save()
       .then(() => this.refresh())
       .then(() => {
@@ -44,7 +41,6 @@ export default Route.extend({
       })
     },
     updateEventName (name) {
-      console.log('event name in admin.js is ', name)
       this.get('store').findRecord('event', 1).then(eventRecord => {
         eventRecord.set('name', name)
         eventRecord.save()
@@ -60,7 +56,6 @@ export default Route.extend({
       })
     },
     updateMaxVotes (votes) {
-      console.log('votes in admin.js is ', votes)
       this.get('store').findRecord('event', 1).then(eventRecord => {
         eventRecord.set('maxVotes', votes)
         eventRecord.save()
@@ -76,8 +71,6 @@ export default Route.extend({
       })
     },
     setEventStage (newStage) {
-      console.log('setEventStage called on admin.js')
-      console.log('newStage in admin.js is: ', newStage)
       this.get('store').findRecord('event', 1).then(eventRecord => {
         if (newStage === 'proposalsOpen') {
           eventRecord.set('votingOpen', false)
@@ -105,7 +98,6 @@ export default Route.extend({
     },
     deleteAllTimeslots () {
       this.get('store').findAll('timeslot', { reload: true })
-      // .invoke('destroyRecord')
       .then(function (timeslots) {
         timeslots.forEach((timeslot) => {
           timeslot.destroyRecord()

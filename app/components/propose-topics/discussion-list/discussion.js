@@ -8,8 +8,6 @@ export default Component.extend({
       return this.sendAction('deleteDiscussion', this.get('discussion'))
     },
     updateDiscussion (discussion) {
-      console.log('updateDiscussion called on discussion.js')
-      console.log('item in item.js is: ', discussion)
       this.toggleProperty('editing')
       return this.sendAction('updateDiscussion', discussion)
     },
@@ -17,7 +15,6 @@ export default Component.extend({
       return this.sendAction('deleteDiscussion', this.get('discussion'))
     },
     toggleEditing () {
-      console.log('current state of editing is: ', this.get('editing'))
       this.toggleProperty('editing')
     }
   }

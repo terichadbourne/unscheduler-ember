@@ -1,22 +1,6 @@
-{{!-- <span class="ember-tip">index.hbs</span>
-{{#if isAdmin}}
-<span class="ember-tip">USER IS ADMIN</span>
-{{else if isAuthenticated}}
-  <span class="ember-tip">USER IS NOT AN ADMIN</span>
-{{else}}
-  <span class="ember-tip">NO ONE IS SIGNED IN</span>
-{{/if}}
-<p class="ember-tip">current path: {{this.currentPath}}</p>
-<ul class="ember-tip">
-<li>event is {{model.event}}</li>
-<li>event.name is {{model.event.name}}</li>
-<li>proposalsOpen: {{model.event.proposalsOpen}}</li>
-<li>votingOpen: {{model.event.votingOpen}}</li>
-<li>scheduleFinalized: {{model.event.scheduleFinalized}}</li>
-<li>maxVotes: {{model.event.maxVotes}}</li>
-</ul>
+{{!--
+<p class="ember-tip">current path: {{this.currentPath}}</p> --}}
 
-<span class="ember-tip">about to show event-gatekeeper:</span> --}}
 {{event-gatekeeper event=model.event
                    discussions=model.discussions
                    timeslots=model.timeslots

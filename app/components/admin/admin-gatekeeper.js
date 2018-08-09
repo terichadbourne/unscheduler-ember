@@ -14,18 +14,12 @@ export default Component.extend({
       return this.sendAction('createTimeslots', newTimeslots)
     },
     updateEventName (name) {
-      console.log('updateEventName called on admin-gatekeeper.js')
-      console.log('nam in admin-gatekeeper.js is: ', name)
       return this.sendAction('updateEventName', name)
     },
     updateMaxVotes (votes) {
-      console.log('updateMaxVotes called on admin-gatekeeper.js')
-      console.log('votes in admin-gatekeeper.js is: ', votes)
       return this.sendAction('updateMaxVotes', votes)
     },
     setEventStage (stage) {
-      console.log('setEventStage called on admin-gatekeeper.js')
-      console.log('stage in admin-gatekeeper.js is: ', stage)
       return this.sendAction('setEventStage', stage)
     },
     deleteAllTimeslots () {

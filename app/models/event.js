@@ -12,7 +12,6 @@ export default DS.Model.extend({
     const timeslots = this.get('timeslots')
     const roomsArray = []
     timeslots.forEach((timeslot) => {
-      console.log('timeslot.roomName is ', timeslot.get('roomName'))
       if (roomsArray.includes(timeslot.get('roomName'))) {
       } else {
         roomsArray.push(timeslot.get('roomName'))
@@ -24,7 +23,6 @@ export default DS.Model.extend({
     const timeslots = this.get('timeslots')
     const startTimesArray = []
     timeslots.forEach((timeslot) => {
-      console.log('timeslot.startTime is ', timeslot.get('startTime'))
       if (startTimesArray.includes(timeslot.get('startTime'))) {
       } else {
         startTimesArray.push(timeslot.get('startTime'))
@@ -36,7 +34,6 @@ export default DS.Model.extend({
     const timeslots = this.get('timeslots')
     const endTimesArray = []
     timeslots.forEach((timeslot) => {
-      console.log('timeslot.endTime is ', timeslot.get('endTime'))
       if (endTimesArray.includes(timeslot.get('endTime'))) {
       } else {
         endTimesArray.push(timeslot.get('endTime'))
@@ -48,7 +45,6 @@ export default DS.Model.extend({
     const timeslots = this.get('timeslots')
     const displayTimesArray = []
     timeslots.forEach((timeslot) => {
-      console.log('timeslot.displayTime is ', timeslot.get('displayTime'))
       if (displayTimesArray.includes(timeslot.get('displayTime'))) {
       } else {
         displayTimesArray.push(timeslot.get('displayTime'))
