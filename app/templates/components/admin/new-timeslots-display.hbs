@@ -1,5 +1,5 @@
 <ul>
   {{#each timeslots as |timeslot|}}
-    <li> {{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
+    <li> {{timeslot.displayTime}} <em>({{timeslot.roomName}})</em></li>
   {{/each}}
 </ul>
