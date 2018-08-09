@@ -33,6 +33,15 @@ export default Route.extend({
     updateTimeslot (timeslot) {
       console.log('in updateTimeslot in admin route and timeslot is: ', timeslot)
       timeslot.save()
+      .then(() => this.refresh())
+      .then(() => {
+        this.get('flashMessages')
+          .success('The timeslot been updated.')
+      })
+      .catch(() => {
+        this.get('flashMessages')
+          .danger('There was a problem updating the timeslot. Please try again.')
+      })
     },
     updateEventName (name) {
       console.log('event name in admin.js is ', name)
@@ -95,7 +104,7 @@ export default Route.extend({
       })
     },
     deleteAllTimeslots () {
-      this.get('store').findAll('timeslot')
+      this.get('store').findAll('timeslot', { reload: true })
       // .invoke('destroyRecord')
       .then(function (timeslots) {
         timeslots.forEach((timeslot) => {
