@@ -12,6 +12,19 @@
     <p>Voting is open. (put a component here)</p>
   {{else if event.scheduleFinalized}}
     <p>Schedule is finalized. (put a component here)</p>
+    <h3>Sessions</h3>
+    <ul>
+      {{#each event.displayTimes as |displayTime|}}
+        <li>{{displayTime}}</li>
+      {{/each}}
+    </ul>
+    <h3>Rooms</h3>
+    <ul>
+      {{#each event.roomNames as |roomName|}}
+        <li>{{roomName}}</li>
+      {{/each}}
+    </ul>
+    <h3>Unordered Timeslots</h3>
     <ul>
       {{#each timeslots as |timeslot|}}
         <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{timeslot.roomName}})</li>
