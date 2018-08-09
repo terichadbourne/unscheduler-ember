@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route'
 import { inject as service } from '@ember/service'
-import RSVP from 'rsvp'
+// import RSVP from 'rsvp'
 
 export default Route.extend({
   flashMessages: service(),
@@ -14,22 +14,20 @@ export default Route.extend({
     // })
   },
   actions: {
-    createTimeslot (timeslotPojo) {
-      console.log('in createTimeslot in admin.js and timeslotPojo is: ', timeslotPojo)
-      console.log('this.get(model) is: ', this.get('model'))
-      const emberTimeslot = this.get('store').createRecord('timeslot', timeslotPojo)
-      console.log('admin.js emberTimeslot is', emberTimeslot)
-      console.log('admin.js emberTimeslot.get(event) is ', emberTimeslot.get('event'))
-      emberTimeslot.set('event', this.get('store').findRecord('event', 1))
-      console.log('admin.js emberTimeslot.get(event) is ', emberTimeslot.get('event'))
-      return emberTimeslot.save()
-      .then(() => {
-        this.get('flashMessages').success('New timeslot saved.')
-      })
-      // .then(() => this.refresh())
-      .catch(() => {
-        this.get('flashMessages')
-        .danger('There was a problem saving that timeslot. Please try again.')
+    createTimeslots (newTimeslots) {
+      console.log('in createTimeslot in admin.js and newTimeslots is: ', newTimeslots)
+      newTimeslots.forEach((timeslotPojo) => {
+        const emberTimeslot = this.get('store').createRecord('timeslot', timeslotPojo)
+        console.log('admin.js emberTimeslot is', emberTimeslot)
+        return emberTimeslot.save()
+        .then(() => {
+          this.get('flashMessages').success('New timeslot saved.')
+        })
+        .then(() => this.refresh())
+        .catch(() => {
+          this.get('flashMessages')
+          .danger('There was a problem saving that timeslot. Please try again.')
+        })
       })
     },
     updateEventName (name) {
@@ -90,6 +88,23 @@ export default Route.extend({
           this.get('flashMessages')
             .danger('There was a problem updating the event stage. Please try again.')
         })
+      })
+    },
+    deleteAllTimeslots () {
+      this.get('store').findAll('timeslot')
+      // .invoke('destroyRecord')
+      .then(function (timeslots) {
+        timeslots.forEach((timeslot) => {
+          timeslot.destroyRecord()
+        })
+      })
+      .then(() => {
+        this.get('flashMessages')
+          .success('Timeslots deleted.')
+      })
+      .catch(() => {
+        this.get('flashMessages')
+          .danger('There was a problem resetting your timeslots. Please try again.')
       })
     }
   }

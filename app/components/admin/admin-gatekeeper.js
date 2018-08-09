@@ -7,8 +7,8 @@ export default Component.extend({
   isAuthenticated: alias('auth.isAuthenticated'),
   isAdmin: alias('auth.isAdmin'),
   actions: {
-    createTimeslot (timeslotPojo) {
-      return this.sendAction('createTimeslot', timeslotPojo)
+    createTimeslots (newTimeslots) {
+      return this.sendAction('createTimeslots', newTimeslots)
     },
     updateEventName (name) {
       console.log('updateEventName called on admin-gatekeeper.js')
@@ -24,6 +24,9 @@ export default Component.extend({
       console.log('setEventStage called on admin-gatekeeper.js')
       console.log('stage in admin-gatekeeper.js is: ', stage)
       return this.sendAction('setEventStage', stage)
+    },
+    deleteAllTimeslots () {
+      return this.sendAction('deleteAllTimeslots')
     }
   }
 })

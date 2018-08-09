@@ -17,8 +17,11 @@ export default Component.extend({
       console.log('stage in admin-panel.js is: ', stage)
       return this.sendAction('setEventStage', stage)
     },
-    createTimeslot (timeslotPojo) {
-      return this.sendAction('createTimeslot', timeslotPojo)
+    createTimeslots (newTimeslots) {
+      return this.sendAction('createTimeslots', newTimeslots)
+    },
+    deleteAllTimeslots () {
+      return this.sendAction('deleteAllTimeslots')
     }
   }
 })

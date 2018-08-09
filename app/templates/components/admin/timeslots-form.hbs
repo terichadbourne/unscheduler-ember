@@ -1,16 +1,27 @@
-<h3>Create Timeslots</h3>
+{{#unless event.timeslots}}
+  <h3>Build Your Schedule</h3>
 
-<form {{action 'requestTimeslots' on="submit"}}>
-  <label for="timeslotsQty">Timeslots Available:</label>
-  {{input type="number" placeholder="Timeslots Required" value=timeslotsRequest.timeslotsQty id="timeslotsQty" min="1" max="5"}}
-  <label for="roomsQty">Rooms Available:</label>
-  {{input type="number" placeholder="Event Name" value=timeslotsRequest.roomsQty id="roomsQty" min="1" max="5"}}
-  <button type="submit">Set Up Timeslots</button>
+  <p> Ready to build your schedule? Enter the number of rooms available and the
+    the number of timeslots planned below. We'll then give you a chance to tell
+    us your room names and the start and end times of each timeslot.</p>
 
-</form>
+  <form {{action 'createTimeslots' on="submit"}}>
+    <label for="timeslotsQty">Timeslots Available:</label>
+    {{input type="number" placeholder="Number of Timeslots" value=timeslotsRequest.timeslotsQty id="timeslotsQty" min="1" max="5" required=true}}
+    <label for="roomsQty">Rooms Available:</label>
+    {{input type="number" placeholder="Number of Rooms" value=timeslotsRequest.roomsQty id="roomsQty" min="1" max="5" required=true}}
+    <button type="submit">Build Schedule</button>
+  </form>
+{{/unless}}
 
-<ul>
-  {{#each newTimeslots as |timeslot|}}
-    <li>{{timeslot.startTime}} - {{timeslot.endTime}} ({{roomName}})</li>
-  {{/each}}
-</ul>
+{{#if event.timeslots}}
+  <h3>Your Schedule</h3>
+  <p> Based on the parameters you supplied, here are your timeslots: </p>
+  {{admin/new-timeslots-display event=event
+                                timeslots=event.timeslots}}
+  <br>
+  <strong>Made a mistake?</strong>
+  If you need a different number of rooms or timeslots, you can
+  delete your existing schedule and start over.
+  <button {{action 'deleteAllTimeslots'}}>Start Over</button>
+{{/if}}
