@@ -14,7 +14,7 @@ unconferences, inspired by my work as a co-organizer for [Offline Camp](http://o
 
 ## Technologies used
 
-#### Front-End Technologies
+### Front-End Technologies
 - Ember
 - Handlebars
 - JavaScript
@@ -24,7 +24,7 @@ unconferences, inspired by my work as a co-organizer for [Offline Camp](http://o
 - CSS3
 - Sass
 
-#### Back-End Technologies
+### Back-End Technologies
 - Ruby on Rails
 - PostgreSQL
 - Active Record
@@ -49,8 +49,6 @@ ones are spread across different timeslots from each other and in the largest
 available rooms, topics that should appeal to similar subgroups of attendees
 aren't scheduled to conflict with one another, etc.
 
-Check out these photos for a taste of the current analog process:
-
 #### Voting on proposed discussion topics with sticky notes and stickers
 <img src="images/AnalogVoting.png" width="400">
 
@@ -59,19 +57,16 @@ Check out these photos for a taste of the current analog process:
 
 ## Project planning and strategy
 
-Preparation and planning were key to my success with this project. Here's a look
-at my strategy and process.
-
 For my first experience with Ember, I decided to return to the Unscheduler app
 that I had previously built in jQuery and work on some new functionality. Since
 event admins make decisions that affect what all users see when they visit the
 site (proposals, voting, or final schedule), this seemed like a natural use case
 for view states. With only 4 days available to update my Ruby on Rails API and
-rework the front end, prioritization was key.
+rework the front end in Ember and Handlebars, prioritization was key.
 
 ### Features
 
-Here's a look at the current and future features of the Unschedulur app. Many actions are restricted to admin users.
+Here's a look at the current and future features of the Unschedulur app. (Note than many actions are restricted to admin users.) 
 
 Feature | User Access | Completion Status
 --- | --- | ---
@@ -86,6 +81,13 @@ View final schedule (beta - timeslots only)| <ul><li>[x] Organizers</li><li>[x] 
 View final schedule (improved formatting with discussions assigned)| <ul><li>[x] Organizers</li><li>[x] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[ ] Ember</li></ul>
 
 _Curious to see the previous implementation of this app? You can find more info [here](https://github.com/terichadbourne/unscheduler-client)._
+
+#### Next Steps
+- Improve update process for timeslots so an admin can make their edits from a view showing just room names and times, with their requested changes implemented across all sessions in the room or timeslot whose name has changed. 
+- Add discussions to timeslots through drag and drop.
+- Improve the schedule display to sort by time and room.
+- Add room capacities to timeslot records so event organizers can assign the discussion topics with the highest vote count to the largest rooms.
+- Rebuild voting and winner selection functionality in Ember.
 
 
 ### User Stories
@@ -130,7 +132,7 @@ I created the following entity relationship diagrams to map out my relational da
 
 ### API Routes
 
-My API follows RESTful conventions with resources as follows:
+My API follows RESTful conventions with resources accessible as follows:
 
 ##### Authentication
 
@@ -225,14 +227,14 @@ adding the related front-end functionality. Here's a look at my work plan.
 
 ### Installation
 
-**To run the client app locally: **
+**To run the client app locally:**
 - Fork and clone the [client repository](https://github.com/terichadbourne/unscheduler-ember).
 - Install build dependencies with `npm install`. Dependencies are stored in `package.json`. (If you have not installed phantomjs, you will need to install it globally: `npm install --global phantomjs-prebuilt`.)
 - Commit your changes.
 - Run the development server with `ember server`.
 - Open in your browser at [http://localhost:7165/](http://localhost:7165/).
 
-**To serve the back end locally: **
+**To serve the back end locally:**
 - Fork and clone the [back-end repository](https://github.com/terichadbourne/unscheduler-backend).
 - Install dependencies with `bundle install`.
 - Commit your changes.
