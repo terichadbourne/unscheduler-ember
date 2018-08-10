@@ -47,6 +47,10 @@ Check out these photos for a taste of the current analog process:
 <img src="images/AnalogScheduling.jpeg" width="400">
 
 ## Project planning and strategy
+
+Preparation and planning were key to my success with this project. Here's a look
+at my strategy and process.
+
 For my first experience with Ember, I decided to return to the Unscheduler app
 that I had previously built in jQuery and work on some new functionality. Since
 event admins make decisions that affect what all users see when they visit the
@@ -54,8 +58,10 @@ site (proposals, voting, or final schedule), this seemed like a natural use case
 for view states. With only 4 days available to update my Ruby on Rails API and
 rework the front end, prioritization was key.
 
+### Features
+
 At present, the following functionality is complete, with more features in the
-works (features with asterisks are restricted to admin users):
+works. (Note that many features are restricted to admin users.)
 
 Feature | User Access | Completion Status
 --- | --- | ---
@@ -69,8 +75,8 @@ Assign discussion topics to session slots | <ul><li>[x] Organizers</li><li>[ ] P
 View final schedule (beta - timeslots only)| <ul><li>[x] Organizers</li><li>[x] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[x] Ember</li></ul>
 View final schedule (improved formatting with discussions assigned)| <ul><li>[x] Organizers</li><li>[x] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[ ] Ember</li></ul>
 
-Preparation and planning were key to my success with this project. Here's a look
-at my strategy and process.
+_Curious to see the previous implementation of this app? You can find more info [here](https://github.com/terichadbourne/unscheduler-client)._
+
 
 ### User Stories
 
@@ -112,13 +118,64 @@ I created the following entity relationship diagrams to map out my relational da
 - [Entity Relationship Diagrams](https://www.dropbox.com/s/x9k7nurwohfvpw4/ERD.JPG?dl=0)
 - [CRUD Actions by Resource](https://www.dropbox.com/s/4hnei17ui9de6nw/CRUD.JPG?dl=0)
 
-### Catalog of Routes
+### API Routes
 
-TODO: Add this table
+My API follows RESTful conventions with resources as follows:
 
-### Setup and Installation
+##### Authentication
 
-TODO: Add instructions
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| POST   | `/sign-up`             | `users#signup`    |
+| POST   | `/sign-in`             | `users#signin`    |
+| PATCH  | `/change-password`     | `users#changepw`  |
+| DELETE | `/sign-out`            | `users#signout`   |
+
+##### Users
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET  | `/users`    | `users#index`     |
+| GET  | `/users/1`  | `users#show`      |
+| PATCH| `/users/1`  | `users#update`    |
+
+##### Discussions
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET  | `/discussions`    | `discussions#index`     |
+| GET  | `/discussions/1`  | `discussions#show`      |
+| POST   | `/discussions`   | `discussions#create`    |
+| PATCH| `/discussions/1`  | `discussions#update`    |
+| DELETE | `/discussions`   | `discussions#destroy`   |
+
+##### Votes
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET  | `/votes`    | `votes#index`     |
+| GET  | `/votes/1`  | `votes#show`      |
+| POST   | `/votes`   | `votes#create`    |
+| DELETE | `/votes`   | `votes#destroy`   |
+
+##### Timeslots
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET  | `/timeslots`    | `timeslots#index`     |
+| GET  | `/timeslots/1`  | `timeslots#show`      |
+| POST s | `/timeslots`   | `timeslots#create`    |
+| PATCH | `/timeslots/1`  | `timeslots#update`    |
+| DELETE | `/timeslots`   | `timeslots#destroy`   |
+
+##### Events
+
+| Verb | URI Pattern | Controller#Action |
+|------|-------------|-------------------|
+| GET  | `/events`    | `events#index`     |
+| GET  | `/events/1`  | `events#show`      |
+| PATCH| `/events/1`  | `events#update`    |
+
 
 ### Work Process
 
@@ -155,3 +212,21 @@ adding the related front-end functionality. Here's a look at my work plan.
 * Style, debug, deploy
 
 - [Options A & B and stretch goals](https://www.dropbox.com/s/g9yzcoqiul4omjq/Plans_and_Stretch_Goals.JPG?dl=0)
+
+### Installation
+
+**To run the client app locally: **
+- Fork and clone the [client repository](https://github.com/terichadbourne/unscheduler-ember).
+- Install build dependencies with `npm install`. Dependencies are stored in `package.json`. (If you have not installed phantomjs, you will need to install it globally: `npm install --global phantomjs-prebuilt`.)
+- Commit your changes.
+- Run the development server with `ember server`.
+- Open in your browser at [http://localhost:7165/](http://localhost:7165/).
+
+**To serve the back end locally: **
+- Fork and clone the [back-end repository](https://github.com/terichadbourne/unscheduler-backend).
+- Install dependencies with `bundle install`.
+- Commit your changes.
+- Create a .env for sensitive settings (`touch .env`).
+- Generate new development and test secrets (`bundle exec rails secret`) and
+store them in `.env` with keys `SECRET_KEY_BASE_DEVELOPMENT` and `SECRET_KEY_BASE_TEST`.
+- Run the local API server at `http://localhost:4741/events` with `bin/rails server` or `bundle exec rails server`.
