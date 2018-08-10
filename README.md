@@ -14,17 +14,28 @@ unconferences, inspired by my work as a co-organizer for [Offline Camp](http://o
 
 ## Technologies used
 
-Front End | Back End
---- | --- | ---
-<li>Ember</li><li>Handlebars</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap</li><li>HTML5</li><li>CSS3</li><li>Sass</li> | <li>Ruby on Rails</li><li>PostgreSQL</li><li>Active Record</li>
+#### Front-End Technologies
+- Ember
+- Handlebars
+- JavaScript
+- jQuery
+- Bootstrap
+- HTML5
+- CSS3
+- Sass
+
+#### Back-End Technologies
+- Ruby on Rails
+- PostgreSQL
+- Active Record
 
 ## Screenshots
 
 ##### Discussion Proposals
-<img src="images/ScreenshotProposals.png" width="400">
+<img src="images/ScreenshotProposals.png">
 
 ##### Admin Panel
-<img src="images/ScreenshotAdminPanel.png" width="400">
+<img src="images/ScreenshotAdminPanel.png">
 
 ## The backstory: Unconference organizing with sticky notes and Mr. Sketch markers
 
@@ -41,10 +52,10 @@ aren't scheduled to conflict with one another, etc.
 Check out these photos for a taste of the current analog process:
 
 ##### Voting on proposed discussion topics with sticky notes and stickers
-<img src="images/AnalogVoting.png" width="400">
+<img src="images/AnalogVoting.png">
 
 ##### Scheduling the winners on a grid of available session slots
-<img src="images/AnalogScheduling.jpeg" width="400">
+<img src="images/AnalogScheduling.jpeg">
 
 ## Project planning and strategy
 
