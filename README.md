@@ -3,36 +3,35 @@
 The Unscheduler is an app for managing the voting and scheduling process for
 unconferences, inspired by my work as a co-organizer for [Offline Camp](http://offlinefirst.org/camp). *(Yes, [unconferences have schedules](https://medium.com/offline-camp/crafting-community-events-that-leave-them-wanting-smore-902974cff4d4)!)*
 
-**Check out the code or the [live app](UPDATE THIS LINK)!**
+**Check out the code or the [live app](https://terichadbourne.com/unscheduler-ember/)!**
 
 * Front-end client
    * [GitHub repo](https://github.com/terichadbourne/unscheduler-ember) (unscheduler-ember)
-   * [Live site](UPDATE THIS LINK) (deployed on GitHub Pages)
+   * [Live site](https://terichadbourne.com/unscheduler-ember/) (deployed on GitHub Pages)
 * Back-end API
    * [GitHub repo](https://github.com/terichadbourne/unscheduler-backend) (unscheduler-backend)
    * [Live site](https://sleepy-springs-55525.herokuapp.com/) (deployed on Heroku)
 
 ## Technologies used
-  - **Front-end technologies**
-    - Ember
-    - JavaScript
-    - jQuery
-    - Handlebars
-    - Bootstrap
-    - HTML5
-    - CSS3
-    - Sass
-  - **Back-end technologies**
-    - Ruby on Rails
-    - PostgreSQL
-    - Active Record
+
+Front End | Back End
+--- | --- | ---
+<li>Ember</li><li>Handlebars</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap</li><li>HTML5</li><li>CSS3</li><li>Sass</li> | <li>Ruby on Rails</li><li>PostgreSQL</li><li>Active Record</li>
+
+## Screenshots
+
+##### Discussion Proposals
+<img src="images/ScreenshotProposals.png" width="400">
+
+##### Admin Panel
+<img src="images/ScreenshotAdminPanel.png" width="400">
 
 ## The backstory: Unconference organizing with sticky notes and Mr. Sketch markers
 
 As a member of the [Offline First](http://offlinefirst.org) development
 community, I co-organize an unconference called [Offline Camp](http://offlinefirst.org/camp), where attendees propose topics for
 discussion and then vote to determine what topics are actually discussed in the
-limitedtime we have available. As organizers, we take the votes (a sticky note
+limited time we have available. As organizers, we take the votes (a sticky note
 for each proposal, with stickers representing votes won) and give some careful
 thought to how to best schedule the winning sessions so that the most popular
 ones are spread across different timeslots from each other and in the largest
@@ -40,41 +39,54 @@ available rooms, topics that should appeal to similar subgroups of attendees
 aren't scheduled to conflict with one another, etc.
 
 Check out these photos for a taste of the current analog process:
-- [Voting on proposed discussion topics with sticky notes and stickers](https://www.dropbox.com/s/12js63t40ft7arg/Current_Voting.png?dl=0)
-- [Scheduling the winners on a grid of available session slots](https://www.dropbox.com/s/mt0jvgwls6xq6bx/Current_Scheduling.jpeg?dl=0)
 
-This Unscheduler app is meant to mimic the analog process we use at Offline Camp
-by:
+##### Voting on proposed discussion topics with sticky notes and stickers
+<img src="images/AnalogVoting.png" width="400">
 
-TODO: UPDATE THIS SECTION
-
-- Allowing event participants to nominate discussion topics (complete)
-- Allowing event participants to vote on proposed topics (complete)
-- Allowing event organizers to open and close proposal and voting periods (complete)
-- Allowing event organizers to easily identify winning sessions (complete)
-- Allowing event organizers to schedule sesions into timeslots (upcoming)
-- Allowing participants to view the final schedule (upcoming)
+##### Scheduling the winners on a grid of available session slots
+<img src="images/AnalogScheduling.jpeg" width="400">
 
 ## Project planning and strategy
+For my first experience with Ember, I decided to return to the Unscheduler app
+that I had previously built in jQuery and work on some new functionality. Since
+event admins make decisions that affect what all users see when they visit the
+site (proposals, voting, or final schedule), this seemed like a natural use case
+for view states. With only 4 days available to update my Ruby on Rails API and
+rework the front end, prioritization was key.
+
+At present, the following functionality is complete, with more features in the
+works (features with asterisks are restricted to admin users):
+
+Feature | User Access | Completion Status
+--- | --- | ---
+Set event name and max votes per person | <ul><li>[x] Organizers</li><li>[ ] Participants</li></ul> |<ul><li>[x] jQuery</li><li>[x] Ember</li></ul>
+Set event status (proposing, voting, schedule final) | <ul><li>[x] Organizers</li><li>[x] Participants</li></ul> | <ul><li>[x] jQuery</li><li>[x] Ember</li></ul>
+Propose discussion topics | <ul><li>[x] Organizers</li><li>[x] Participants</li></ul>|<ul><li>[x] jQuery</li><li>[x] Ember</li></ul>
+Vote on discussion topics  | <ul><li>[x] Organizers</li><li>[x] Participants</li></ul>|<ul><li>[x] jQuery</li><li>[ ] Ember</li></ul>
+Calculate winning sessions  | <ul><li>[x] Organizers</li><li>[ ] Participants</li></ul> |<ul><li>[x] jQuery</li><li>[ ] Ember</li></ul>
+Build placeholder schedule with rooms and timeslots  | <ul><li>[x] Organizers</li><li>[ ] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[x] Ember</li></ul>
+Assign discussion topics to session slots | <ul><li>[x] Organizers</li><li>[ ] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[ ] Ember</li></ul>
+View final schedule (beta - timeslots only)| <ul><li>[x] Organizers</li><li>[x] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[x] Ember</li></ul>
+View final schedule (improved formatting with discussions assigned)| <ul><li>[x] Organizers</li><li>[x] Participants</li></ul> |<ul><li>[ ] jQuery</li><li>[ ] Ember</li></ul>
+
 Preparation and planning were key to my success with this project. Here's a look
 at my strategy and process.
 
 ### User Stories
 
-TODO: UPDATE THIS SECTION
+These user stories guided my development process for both versions of the project:
 
-These user stories guided my development process:
-
-- **Proposing** (Complete)
+- **Proposing**
    - As an event attendee or organizer, I want to see a list of all currently proposed sessions so that I don't create a duplicate proposal.
    - As an event attendee or organizer, after seeing other proposals, I then want to propose a new unconference session topic for everyone to vote on so that my favorite topic will be covered.
 
-- **Voting** (Complete)
+- **Voting**
+   - As an event organizer, I want control how many votes each attendee is allowed.
    - As an event attendee or organizer, I want to see a list of all proposed sessions so that I can choose how to use my X number of votes.
    - As an event attendee or organizer, I want to apply my X number of votes to my favorite sessions (either all to one or one/some to multiple) so that my favorite topics are likely to be selected.
-   - As an event organizer, I want to view all proposed sessions with their vote counts to determine which are the winners.
 
-- **Scheduling & Admin** (Upcoming)
+- **Scheduling**
+   - As an event organizer, I want to view all proposed sessions ordered by vote count to determine which are the winners.
    - As an event organizer, I want to add some keywords (such as UX) to winning sessions to help guide my timeslot assignments, ensuring similar sessions aren't scheduled on top of each other.
    - As an event organizer, I want to add a list of daily timeslots avialable for sessions to create my base schedule.
    - As an event organizer, I want to add a list of rooms available for discussion sessions to create my base schedule.
@@ -83,60 +95,63 @@ These user stories guided my development process:
 
 ### Wireframes
 
-TODO: UPDATE THIS SECTION
+These wireframes guided my front-end development for the Ember client:
 
-These wireframes guided my front-end development:
+- [Wireframe: Proposing Topics](https://www.dropbox.com/s/ilzjq21ivk9fux2/Wireframe_1_Proposing.JPG?dl=0)
+- [Wireframe: Admin Panel](https://www.dropbox.com/s/1kuw85esjv0h5p5/Wireframe_4_Admin_Assorted.JPG?dl=0)
+- [Wireframe: Final Schedule](https://www.dropbox.com/s/jio0qevf7ddwjak/Wireframe_3_Schedule.JPG?dl=0)
+- [Wireframe: Voting](https://www.dropbox.com/s/xe6uwt8r28fxd27/Wireframe_2_Voting.JPG?dl=0)
+- [Wireframe: Admin Session Scheduling](https://www.dropbox.com/s/whapg3cirhbfz1m/Wireframe_5_Admin_Scheduling.JPG?dl=0) (future enhancement: add discussions to timeslots with drag and drop)
+- [Wireframe: Final Schedule](https://www.dropbox.com/s/jio0qevf7ddwjak/Wireframe_3_Schedule.JPG?dl=0)
 
-- [Version 1: Proposing Discussion Topics](https://www.dropbox.com/s/nl6sdmdzpa43d2s/Wireframe_Proposing.JPG?dl=0)
-- [Version 1: Voting on Discussion Topics](https://www.dropbox.com/s/qvnjl3n9g90gpaj/Wireframe_Voting.JPG?dl=0)
-- [Version 2: Scheduling Sessions](https://www.dropbox.com/s/a4tbkn309ca6ws2/Wireframe_SchedulingJPG.JPG?dl=0)
-- [Version 2: Viewing Final Schedule](https://www.dropbox.com/s/6ekkdcyorl2fl6b/Wireframe_Schedule_View.JPG?dl=0)
 
 ### Entity Relationship Diagrams
 
-TODO: UPDATE THIS SECTION
+I created the following entity relationship diagrams to map out my relational database structure before revising my API, and adjusted the plan to meet time constraints on the project.
 
-I created the following entity relationship diagrams to map out my relational
-database structure before devloping my API, and adjusted the plan to meet time
-constraints on the project.
+- [Entity Relationship Diagrams](https://www.dropbox.com/s/x9k7nurwohfvpw4/ERD.JPG?dl=0)
+- [CRUD Actions by Resource](https://www.dropbox.com/s/4hnei17ui9de6nw/CRUD.JPG?dl=0)
 
-[Entity Relationship Diagrams](https://www.dropbox.com/s/1yyfi3xf42ebzg4/Unschedule%20ERDs.jpg?dl=0)
+### Catalog of Routes
+
+TODO: Add this table
+
+### Setup and Installation
+
+TODO: Add instructions
 
 ### Work Process
 
-TODO: UPDATE THIS SECTION
-
 I took a methodical approach to development of the app, first building out each
-SQL table and getting my Rails server up and running via curl scripts before
-adding the related front-end functionality. Here's a look at my project plan.
-I was able to complete my MVP and add additional admin functionality before
-deadline, and I have lots of functionality I'd still love to add in the future.
+PostgreSQL table and getting my Rails server up and running via curl scripts before
+adding the related front-end functionality. Here's a look at my work plan.
 
-- **Version 1 / MVP (Proposals & Voting)**
-  - API: Build USERS tables, API, and curl scripts
-  - Client: Implement auth functions
-  - API: Build DISCUSSIONS tables, API, and curl scripts
-  - Client: Implement DISCUSSIONS resource functions (propose, vote)
-  - Style, debug, deploy
-- **Version 1.5 (Event Admin)**
-  - API: Build EVENT table with single event belonging to admin
-  - Client: Enable EVENT admin functions (updating proposing/voting/final status,
-  updating event name and max votes per user, determining winning sessions)
-  - Style, debug, deploy
-  - Update documentation
-- **Version 2 (Scheduling & Schedule View)**
-  - API: Build SLOTS tables, API, and curl scripts
-  - Client: Implement SLOTS resource functions (create timeslots, schedule
-    discussions, display final schedule)
-  - Style, debug, deploy
-- **Version 3 (Better Scheduling UI)**
-  - API: Build TIMESLOTS tables, API, and curl scripts
-  - API: Build ROOMS tables, API, and curl scripts
-  - API: Turn SLOTS into a joins table for ROOMS & TIMESLOTS, re-test
-  - Client: Revise SLOTS/TIMESLOTS/ROOMS resource functions (better UI for
-    adding timeslots and rooms to scheduling engine, incl room capacities)
-  - Style, debug, deploy
-- **Version 4 (Improved Styling)**
-  - Optimize scheduling features for laptop/tablet horizontal
-  - Optimize proposing/voting for mobile
-  - Style, debug, deploy
+**Setup**
+* Copy my old Rails app and deploy on a new Heroku server so I can add functionality without breaking the first version
+* Create a brand new Ember app from the template and deploy to GH pages after re-naming everything properly
+
+**MVP**
+* Pick Option A or B for new scheduling functionality with advice from instructors
+* API: Test old resources through curl scripts
+* API: Add "timeslots" resource, adjust other resources as needed, and test with curl scripts
+* API (IF USING OPTION B): Add "assignments" join table, adjust other resources as needed, and test with curl scripts
+* Client: Re-implement scheduling, voting, and existing admin functions in Ember
+* Client: Implement admin confirming winning sessions, updating records as needed based on Option A or Option B
+* Client: Implement assigning winning sessions to timeslots (with drag-and-drop if I'm getting it easily, otherwise switch to simpler solution and come back to this)
+* Style, debug, deploy
+
+**Stretch Goal # 1: Drag and Drop**
+* Client: Circle back to drag-and-drop if not completed already
+* Style, debug, deploy
+
+**Stretch Goal #2: Room Capacities**
+* API: Add room capacities to timeslot records, update and test with curl scripts
+* Client: Display both room capacities and vote counts during assignment process
+* Style, debug, deploy
+
+**Stretch Goal #3: Display Names**
+* API: Add display names to user records, update and test with curl scripts
+* Client: Display friendly username in nav and potentially on discussion listings
+* Style, debug, deploy
+
+- [Options A & B and stretch goals](https://www.dropbox.com/s/g9yzcoqiul4omjq/Plans_and_Stretch_Goals.JPG?dl=0)
