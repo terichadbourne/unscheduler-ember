@@ -31,11 +31,11 @@ unconferences, inspired by my work as a co-organizer for [Offline Camp](http://o
 
 ## Screenshots
 
-##### Discussion Proposals
-<img src="images/ScreenshotProposals.png">
+#### Discussion Proposals
+<img src="images/ScreenshotProposals.png" width="500">
 
-##### Admin Panel
-<img src="images/ScreenshotAdminPanel.png">
+#### Admin Panel
+<img src="images/ScreenshotAdminPanel.png" width="500">
 
 ## The backstory: Unconference organizing with sticky notes and Mr. Sketch markers
 
@@ -51,11 +51,11 @@ aren't scheduled to conflict with one another, etc.
 
 Check out these photos for a taste of the current analog process:
 
-##### Voting on proposed discussion topics with sticky notes and stickers
-<img src="images/AnalogVoting.png">
+#### Voting on proposed discussion topics with sticky notes and stickers
+<img src="images/AnalogVoting.png" width="400">
 
-##### Scheduling the winners on a grid of available session slots
-<img src="images/AnalogScheduling.jpeg">
+#### Scheduling the winners on a grid of available session slots
+<img src="images/AnalogScheduling.jpeg" width="400">
 
 ## Project planning and strategy
 
@@ -71,8 +71,7 @@ rework the front end, prioritization was key.
 
 ### Features
 
-At present, the following functionality is complete, with more features in the
-works. (Note that many features are restricted to admin users.)
+Here's a look at the current and future features of the Unschedulur app. Many actions are restricted to admin users.
 
 Feature | User Access | Completion Status
 --- | --- | ---
